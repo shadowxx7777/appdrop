@@ -11,7 +11,7 @@ function AppCard({ app }: { app: (typeof apps)[number] }) {
   return (
     <article className="app-card">
       <div className="app-card-top">
-        <div className="app-icon" style={{ background: `linear-gradient(145deg, ${app.accent}, #181321)` }}><span>{app.icon}</span></div>
+        <div className="app-icon" style={{ background: `linear-gradient(145deg, ${app.accent}, #181321)` }}>{app.iconImage ? <img className="app-icon-image" src={app.iconImage} alt="" /> : <span>{app.icon}</span>}</div>
         <span className="app-version">{app.version}</span>
       </div>
       <div className="app-card-copy">
@@ -21,7 +21,7 @@ function AppCard({ app }: { app: (typeof apps)[number] }) {
       </div>
       <div className="app-card-bottom">
         <Link href={`/apps/${app.slug}`} className="app-details-link">التفاصيل <ArrowLeft size={15} /></Link>
-        {app.downloadUrl ? <a href={app.downloadUrl} className="mini-download" aria-label={`تحميل ${app.name}`}><ArrowDownToLine size={17} /></a> : <span className="mini-download is-disabled"><ArrowDownToLine size={17} /></span>}
+        {app.downloadUrl ? <a href={app.downloadUrl} download={`${app.name}.apk`} className="mini-download" aria-label={`تحميل ${app.name}`}><ArrowDownToLine size={17} /></a> : <span className="mini-download is-disabled"><ArrowDownToLine size={17} /></span>}
       </div>
     </article>
   );

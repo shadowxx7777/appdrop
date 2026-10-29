@@ -65,6 +65,7 @@ button { color: inherit; }
 .app-card-top { display: flex; justify-content: space-between; align-items: flex-start; }
 .app-icon { display: grid; place-items: center; width: 49px; height: 49px; border: 1px solid rgba(255,255,255,.14); border-radius: 14px; }
 .app-icon span { color: #fff; font-size: 23px; }
+.app-icon-image { width: 100%; height: 100%; border-radius: inherit; object-fit: cover; }
 .app-version { padding: 4px 8px; border: 1px solid var(--line); border-radius: 6px; color: #aaa0b4; font: 10px "Changa", sans-serif; }
 .app-card-copy { margin-top: 15px; }
 .app-platform { color: var(--gold); font-size: 10px; }
@@ -101,8 +102,9 @@ button { color: inherit; }
 .button-disabled { opacity: .58; cursor: not-allowed; }
 .details-visual { position: relative; min-height: 250px; display: grid; place-items: center; overflow: hidden; border: 1px solid var(--line); border-radius: 16px; background: #100d16; }
 .details-halo { position: absolute; width: 180px; height: 180px; border-radius: 50%; background: rgba(112,69,179,.28); filter: blur(62px); }
-.details-app-tile { position: relative; display: grid; place-items: center; width: 104px; height: 104px; border: 1px solid rgba(231,189,92,.3); border-radius: 29px; box-shadow: 0 0 40px rgba(112,69,179,.19); }
+.details-app-tile { position: relative; display: grid; place-items: center; width: 104px; height: 104px; overflow: hidden; border: 1px solid rgba(231,189,92,.3); border-radius: 29px; box-shadow: 0 0 40px rgba(112,69,179,.19); }
 .details-app-tile span { color: white; font-size: 48px; }
+.details-tile-image { width: 100%; height: 100%; border-radius: inherit; object-fit: cover; }
 .details-info-grid { display: grid; grid-template-columns: 1fr 320px; gap: 44px; padding: 39px 0; border-bottom: 1px solid var(--line); }
 .details-description p { max-width: 570px; color: #b7afc0; font-size: 13px; line-height: 2; }
 .version-panel { padding: 15px 18px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); }

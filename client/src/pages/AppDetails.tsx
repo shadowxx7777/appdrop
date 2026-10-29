@@ -24,11 +24,11 @@ export default function AppDetails() {
         <section className="details-hero">
           <div className="details-hero-copy">
             <span className="eyebrow"><i /> {app.platform}</span>
-            <div className="details-app-title-row"><div className="app-icon details-app-icon" style={{ background: `linear-gradient(145deg, ${app.accent}, #181321)` }}><span>{app.icon}</span></div><h1>{app.name}</h1></div>
+            <div className="details-app-title-row"><div className="app-icon details-app-icon" style={{ background: `linear-gradient(145deg, ${app.accent}, #181321)` }}>{app.iconImage ? <img className="app-icon-image" src={app.iconImage} alt="" /> : <span>{app.icon}</span>}</div><h1>{app.name}</h1></div>
             <p className="details-lead">{app.shortDescription}</p>
-            {app.downloadUrl ? <a href={app.downloadUrl} className="button-primary download-button"><ArrowDownToLine size={18} /> تحميل <span>{app.version}</span></a> : <span className="button-primary download-button button-disabled"><ArrowDownToLine size={18} /> التحميل قريبًا</span>}
+            {app.downloadUrl ? <a href={app.downloadUrl} download={`${app.name}.apk`} className="button-primary download-button"><ArrowDownToLine size={18} /> تحميل <span>{app.version}</span></a> : <span className="button-primary download-button button-disabled"><ArrowDownToLine size={18} /> التحميل قريبًا</span>}
           </div>
-          <div className="details-visual"><div className="details-halo" /><div className="details-app-tile" style={{ background: `linear-gradient(145deg, ${app.accent}, #181321)` }}><span>{app.icon}</span></div></div>
+          <div className="details-visual"><div className="details-halo" /><div className="details-app-tile" style={{ background: `linear-gradient(145deg, ${app.accent}, #181321)` }}>{app.iconImage ? <img className="details-tile-image" src={app.iconImage} alt="" /> : <span>{app.icon}</span>}</div></div>
         </section>
         <section className="details-info-grid">
           <article className="details-description"><span className="eyebrow"><i /> عن التطبيق</span><p>{app.description}</p></article>

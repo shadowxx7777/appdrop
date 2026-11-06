@@ -6,14 +6,22 @@
     <meta name="theme-color" content="#09080d" />
     <meta name="description" content="معرض تطبيقاتي — تصفّح التطبيقات وحمّلها." />
     <title>تطبيقاتي — معرض التحميل</title>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="%BASE_URL%favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Changa:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   </head>
   <body>
     <div id="root"></div>
-    <script src="/api/platform/config.js"></script>
+    <script>
+      const url = new URL(window.location.href);
+      const requestedPath = url.searchParams.get("p");
+      if (requestedPath) {
+        const route = requestedPath.replace(/^\/+/, "");
+        window.history.replaceState(null, "", `%BASE_URL%${route}`);
+      }
+    </script>
+    <script src="%BASE_URL%api/platform/config.js"></script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

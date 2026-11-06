@@ -15,7 +15,12 @@ export type AppItem = {
 };
 
 /** أضف تطبيقاتك وملفاتها في مجلد client/public/downloads/. */
-export const apps: AppItem[] = [
+const publicAsset = (path: string) => {
+  if (/^(?:[a-z][a-z\d+.-]*:|\/\/)/i.test(path)) return path;
+  return `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
+};
+
+const appData: AppItem[] = [
   {
     slug: "munasbati",
     name: "مناسباتي ✨",
@@ -32,3 +37,10 @@ export const apps: AppItem[] = [
     screenshots: [],
   },
 ];
+
+export const apps: AppItem[] = appData.map((app) => ({
+  ...app,
+  iconImage: app.iconImage ? publicAsset(app.iconImage) : undefined,
+  downloadUrl: app.downloadUrl ? publicAsset(app.downloadUrl) : "",
+  screenshots: app.screenshots.map(publicAsset),
+}));

@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="noindex" />
+    <title>جارٍ فتح الصفحة…</title>
+    <script>
+      const base = "/appdrop/";
+      const path = window.location.pathname.startsWith(base)
+        ? window.location.pathname.slice(base.length)
+        : window.location.pathname.replace(/^\/+/, "");
+      const requestedPath = `/${path}${window.location.search}${window.location.hash}`;
+      window.location.replace(`${base}?p=${encodeURIComponent(requestedPath)}`);
+    </script>
+  </head>
+  <body>
+    <p>جارٍ فتح صفحة التطبيق…</p>
+  </body>
+</html>

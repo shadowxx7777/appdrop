@@ -9,7 +9,7 @@ import Home from "./pages/Home";
 
 function AppRouter() {
   return (
-    <WouterRouter base={import.meta.env.BASE_URL}>
+    <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
       <Switch>
         <Route path="/" component={Home} />
         <Route path="/apps/:slug" component={AppDetails} />

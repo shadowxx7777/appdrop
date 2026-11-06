@@ -1,28 +1,44 @@
 import { useMemo, useState } from "react";
-import { ArrowDownToLine, ArrowLeft, ArrowUpLeft, Search, Sparkles } from "lucide-react";
+import { ArrowDownToLine, ArrowLeft, ArrowUpLeft, Download, Search, Sparkles } from "lucide-react";
 import { Link } from "wouter";
-import { apps } from "../data/apps";
+import { apps, type AppItem } from "../data/apps";
 import { downloadApk } from "../lib/download";
+import { formatDownloadCount } from "../lib/github-releases";
+import { useAppRelease } from "../lib/useAppRelease";
 
 function BrandMark({ small = false }: { small?: boolean }) {
   return <span className={`brand-mark${small ? " brand-mark-small" : ""}`} aria-hidden="true"><i /><i /><i /></span>;
 }
 
-function AppCard({ app }: { app: (typeof apps)[number] }) {
+function AppCard({ app }: { app: AppItem }) {
+  const { release, loading } = useAppRelease(app);
+  const downloadUrl = release?.downloadUrl ?? (loading ? "" : app.fallbackReleaseUrl || app.downloadUrl);
+  const versionLabel = loading ? "…" : `v${release?.version ?? app.version}`;
+
   return (
     <article className="app-card">
       <div className="app-card-top">
         <div className="app-icon" style={{ background: `linear-gradient(145deg, ${app.accent}, #181321)` }}>{app.iconImage ? <img className="app-icon-image" src={app.iconImage} alt="" /> : <span>{app.icon}</span>}</div>
-        <span className="app-version">{app.version}</span>
+        <span className="app-version">{versionLabel}</span>
       </div>
       <div className="app-card-copy">
         <span className="app-platform">{app.platform}</span>
         <h3>{app.name}</h3>
         <p>{app.shortDescription}</p>
+        <div className="app-release-count" aria-live="polite">
+          <Download size={13} />
+          <span>{release ? `${formatDownloadCount(release.downloadCount)} تحميلات` : loading ? "جاري جلب الإصدار…" : "عداد التحميل غير متاح"}</span>
+        </div>
       </div>
       <div className="app-card-bottom">
         <Link href={`/apps/${app.slug}`} className="app-details-link">التفاصيل <ArrowLeft size={15} /></Link>
-        {app.downloadUrl ? <a href={app.downloadUrl} download={`${app.name}.apk`} onClick={(event) => { event.preventDefault(); void downloadApk(app.downloadUrl, `${app.name}.apk`).catch(() => { window.location.assign(app.downloadUrl); }); }} className="mini-download" aria-label={`تحميل ${app.name}`}><ArrowDownToLine size={17} /></a> : <span className="mini-download is-disabled"><ArrowDownToLine size={17} /></span>}
+        {downloadUrl ? (
+          <a href={downloadUrl} className="mini-download" aria-label={`تحميل ${app.name}`} onClick={(event) => { event.preventDefault(); void downloadApk(downloadUrl, `${app.name}.apk`).catch(() => { window.location.assign(downloadUrl); }); }}>
+            <ArrowDownToLine size={17} />
+          </a>
+        ) : (
+          <span className="mini-download is-disabled" aria-label="جاري جلب رابط التنزيل" aria-busy="true"><ArrowDownToLine size={17} /></span>
+        )}
       </div>
     </article>
   );

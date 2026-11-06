@@ -11,10 +11,13 @@ export type AppItem = {
   version: string;
   updatedAt: string;
   downloadUrl: string;
+  releaseTagPrefix: string;
+  releaseAssetName: string;
+  fallbackReleaseUrl: string;
   screenshots: string[];
 };
 
-/** أضف تطبيقاتك وملفاتها في مجلد client/public/downloads/. */
+/** أضف بيانات التطبيقات هنا، واحفظ ملفات التنزيل الاحتياطية في client/public/downloads/. */
 const publicAsset = (path: string) => {
   if (/^(?:[a-z][a-z\d+.-]*:|\/\/)/i.test(path)) return path;
   return `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
@@ -34,6 +37,9 @@ const appData: AppItem[] = [
     version: "1.0",
     updatedAt: "غير محدد",
     downloadUrl: "/downloads/munasbati.apk",
+    releaseTagPrefix: "munasbati-v",
+    releaseAssetName: "munasbati.apk",
+    fallbackReleaseUrl: "https://github.com/shadowxx7777/appdrop/releases/download/munasbati-v1.0/munasbati.apk",
     screenshots: [],
   },
 ];
@@ -42,5 +48,6 @@ export const apps: AppItem[] = appData.map((app) => ({
   ...app,
   iconImage: app.iconImage ? publicAsset(app.iconImage) : undefined,
   downloadUrl: app.downloadUrl ? publicAsset(app.downloadUrl) : "",
+  fallbackReleaseUrl: app.fallbackReleaseUrl ? publicAsset(app.fallbackReleaseUrl) : "",
   screenshots: app.screenshots.map(publicAsset),
 }));

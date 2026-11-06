@@ -1,7 +1,16 @@
 const APK_MIME_TYPE = "application/vnd.android.package-archive";
 
 export async function downloadApk(url: string, filename: string): Promise<void> {
-  const response = await fetch(url);
+  const destination = new URL(url, window.location.href);
+
+  // GitHub Release assets are cross-origin and served as attachments; navigate directly
+  // so the browser downloads the asset without relying on cross-origin fetch permissions.
+  if (destination.origin !== window.location.origin) {
+    window.location.assign(destination.href);
+    return;
+  }
+
+  const response = await fetch(destination.href);
   if (!response.ok) throw new Error(`APK download failed: ${response.status}`);
 
   const source = await response.blob();

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<title>مناسباتي</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:'Tajawal';font-weight:400;font-display:swap;src:url(fonts/Tajawal-Regular.woff2) format('woff2')}
+@font-face{font-family:'Tajawal';font-weight:500;font-display:swap;src:url(fonts/Tajawal-Medium.woff2) format('woff2')}
+@font-face{font-family:'Tajawal';font-weight:700;font-display:swap;src:url(fonts/Tajawal-Bold.woff2) format('woff2')}
+@font-face{font-family:'Tajawal';font-weight:800;font-display:swap;src:url(fonts/Tajawal-ExtraBold.woff2) format('woff2')}
+:root{--bg:#000;--card:#120a1c;--card2:#1b1029;--line:#2e1a47;--purple:#8b3dff;--purple2:#5b1fb8;--gold:#e6b84a;--gold2:#fbe08a;--text:#f3ecff;--mute:#9b8bb4;--red:#ff5d7a;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px);color-scheme:dark}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:radial-gradient(120% 60% at 50% -10%,#2a0f4d 0%,#000 60%) no-repeat,#000;color:var(--text);font-family:Tajawal,system-ui,sans-serif;min-height:100vh}
+.wrap{max-width:560px;margin:0 auto;padding:18px 16px 110px}
+.top{display:flex;justify-content:space-between;align-items:flex-start}
+h1{margin:0;font-size:26px;font-weight:800;background:linear-gradient(90deg,var(--gold2),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.gear{width:44px;height:44px;border-radius:14px;border:1px solid var(--gold);background:var(--card);color:var(--gold2);font-size:22px;cursor:pointer}
+.sub{color:var(--mute);font-size:13px;margin-top:2px}
+.hero{margin:18px 0 14px;padding:20px;border-radius:22px;background:linear-gradient(135deg,var(--purple2),#1a0638 70%);border:1px solid var(--gold);box-shadow:0 0 32px #8b3dff44;display:flex;align-items:center;gap:16px}
+.big{min-width:84px;height:84px;border-radius:50%;border:3px solid var(--gold);display:grid;place-items:center;text-align:center;line-height:1.1;background:#000a;padding:4px}
+.big b{font-size:32px;color:var(--gold2);display:block}.big span{font-size:12px;color:var(--mute)}
+.hero h2{margin:0 0 4px;font-size:19px}.hero p{margin:0;color:#d9c8f5;font-size:13px}
+.empty{text-align:center;color:var(--mute);padding:40px 10px;line-height:1.8}
+.stats{display:flex;gap:8px;margin:14px 0}
+.stat{flex:1;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px;text-align:center}
+.stat b{display:block;font-size:20px;color:var(--gold)}.stat span{font-size:11px;color:var(--mute)}
+input,select,textarea{width:100%;background:var(--card2);border:1px solid var(--line);color:var(--text);border-radius:12px;padding:12px;font:inherit;font-size:15px}
+input:focus,select:focus,textarea:focus,button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:12px 0 6px}
+.chip{flex:none;border:1px solid var(--line);background:var(--card);color:var(--mute);padding:7px 14px;border-radius:99px;font:inherit;font-size:13px;cursor:pointer}
+.chip.on{background:var(--purple);color:#fff;border-color:var(--gold)}
+.item{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;margin-top:10px;display:flex;gap:12px;align-items:center;cursor:pointer}
+.item.today{border-color:var(--gold);box-shadow:0 0 22px #e6b84a44}
+.item.past{opacity:.45}
+.item.soon{border-color:var(--purple)}
+.ic{width:46px;height:46px;border-radius:14px;background:var(--card2);display:grid;place-items:center;font-size:22px;flex:none}
+.mid{flex:1;min-width:0}.mid b{font-size:16px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mid small{color:var(--mute);font-size:12px;display:block;margin-top:2px}
+.cd{text-align:center;flex:none;min-width:56px}.cd b{font-size:22px;color:var(--gold);display:block;line-height:1}.cd span{font-size:11px;color:var(--mute)}
+.fab{position:fixed;bottom:calc(20px + env(safe-area-inset-bottom,0px));left:20px;width:60px;height:60px;border-radius:50%;border:2px solid var(--gold);background:linear-gradient(135deg,var(--purple),var(--purple2));color:var(--gold2);font-size:32px;cursor:pointer;box-shadow:0 6px 26px #8b3dff88}
+html[dir=ltr] .fab{left:auto;right:20px}
+.sheet{position:fixed;inset:0;background:#000c;display:none;align-items:flex-end;justify-content:center;z-index:5}
+.sheet.open{display:flex}
+.panel{width:100%;max-width:560px;max-height:92vh;overflow:auto;background:#0d0617;border:1px solid var(--gold);border-bottom:0;border-radius:24px 24px 0 0;padding:20px 18px calc(20px + env(safe-area-inset-bottom,0px))}
+.panel h3{margin:0 0 14px;color:var(--gold)}
+h4{margin:20px 0 8px;color:var(--gold2);font-size:15px}
+label{display:block;font-size:13px;color:var(--mute);margin:12px 0 5px}
+.row{display:flex;gap:10px}.row>*{flex:1}
+.btn{border:0;border-radius:14px;padding:13px;font:inherit;font-weight:700;font-size:15px;cursor:pointer;flex:1;background:linear-gradient(135deg,var(--gold2),var(--gold));color:#1a0b00;text-align:center;text-decoration:none;display:block}
+.btn.alt{background:var(--card2);color:var(--text);border:1px solid var(--line)}
+.btn.del{background:#2a0a14;color:var(--red);border:1px solid #5a1428}
+.acts{display:flex;gap:8px;margin-top:14px}
+.hij{color:var(--gold);font-size:13px;margin:4px 0}
+.msg{background:var(--card2);border:1px dashed var(--purple);border-radius:12px;padding:10px;font-size:13px;color:#d9c8f5;margin-top:10px;line-height:1.7}
+.acc{display:flex;gap:12px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px}
+.av{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--purple2));border:2px solid var(--gold);display:grid;place-items:center;font-weight:800;font-size:20px;color:var(--gold2);flex:none}
+.note{font-size:12px;color:var(--mute);margin-top:8px;line-height:1.6}
+.foot{margin-top:24px;padding-top:16px;border-top:1px solid var(--line);text-align:center;font-size:13px;color:var(--mute);line-height:2}
+.foot a{color:var(--gold2);font-weight:700;text-decoration:none;direction:ltr;unicode-bidi:isolate}
+.toast{position:fixed;bottom:100px;left:50%;transform:translateX(-50%);background:var(--gold);color:#1a0b00;padding:9px 18px;border-radius:99px;font-weight:700;font-size:13px;display:none;z-index:9}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><div><h1 id="ttl"></h1><div class="sub" id="today"></div></div><button class="gear" id="gear" aria-label="settings">⚙</button></div>
+  <div id="hero"></div>
+  <div class="stats" id="stats"></div>
+  <input id="q" aria-label="search">
+  <div class="chips" id="chips"></div>
+  <div id="list"></div>
+</div>
+<button class="fab" id="add" aria-label="add">+</button>
+<div class="sheet" id="sheet"><div class="panel" id="panel"></div></div>
+<div class="toast" id="toast"></div>
+
+<script src="./notifications-bridge.js"></script>
+<script>
+var TX={
+ar:{delAcc:'حذف الحساب',delConf:'سيتم حذف بيانات الحساب نهائياً من هذا الجهاز. المناسبات المحفوظة تبقى. متابعة؟',deleted:'تم حذف الحساب',app:'مناسباتي',all:'الكل',soon:'قريباً',cbd:'أعياد الميلاد',can:'الذكريات',cot:'خاصة',bd:'عيد ميلاد',an:'ذكرى سنوية',ot:'مناسبة خاصة',week:'هذا الأسبوع',d30:'خلال 30 يوم',search:'ابحث بالاسم…',nores:'لا توجد نتائج',empty:'ما أضفت أي مناسبة بعد.<br>اضغط + وأضف أول شخص.',
+ today:'اليوم',tom:'بكرة',tom2:'بعد بكرة',wk:'أسبوع',day:'يوم',gone:'مضت',endTxt:'انتهت المناسبة',inD:function(n){return 'بعد '+n+' يوم'},inWk:'بعد أسبوع',todayTxt:'المناسبة اليوم 🎉',
+ turns:function(n){return 'يتم '+n},turnsY:function(n){return 'يتم '+n+' سنة'},hijri:'هجري',remB:function(n){return n?'تنبيه قبل '+n+(n===1?' يوم':' أيام'):'تنبيه في نفس اليوم'},remO:function(n){return n===0?'في نفس اليوم':'قبل '+n+(n===1?' يوم':' أيام')},
+ newT:'مناسبة جديدة',editT:'تعديل المناسبة',name:'الاسم',nameP:'مثال: أحمد',date:'التاريخ (للمناسبة الخاصة: يوم المناسبة نفسه، وللميلاد والذكرى: تاريخ الميلاد أو الزواج)',type:'النوع',remind:'نبّهني',phone:'رقم الجوال',notes:'ملاحظات (هدية، مقاس…)',save:'حفظ',cancel:'إلغاء',
+ need:'اكتب الاسم واختر التاريخ',saved:'تم الحفظ',wa:'واتساب',call:'اتصال',copy:'نسخ التهنئة',copied:'تم النسخ',cfail:'تعذّر النسخ',edit:'تعديل',del:'حذف',conf:'حذف هذه المناسبة؟',sfail:'تعذّر الحفظ على هذا المتصفح',
+ gbd:function(n){return 'كل عام وأنت بخير يا '+n+' 🎂 أسأل الله لك عمراً مديداً مليئاً بالسعادة'},gan:function(n){return 'مبارك '+n+' ذكرى سعيدة 💍 دمتم بخير'},got:function(n){return 'مبارك '+n+' 🎁'},
+ set:'الإعدادات',acct:'الحساب',lang:'اللغة',signup:'إنشاء حساب',signin:'تسجيل الدخول',haveAcc:'عندي حساب',noAcc:'ما عندي حساب',email:'البريد الإلكتروني',pass:'كلمة السر',accName:'اسم الحساب',google:'المتابعة عبر Google',gsoon:'الدخول عبر Google يحتاج ربط Firebase، وسيتوفر في نسخة الأندرويد.',localNote:'الحساب محفوظ على هذا الجهاز فقط ولا يُزامَن بعد.',logout:'تسجيل الخروج',saveName:'حفظ الاسم',bademail:'اكتب بريداً صحيحاً',shortpass:'كلمة السر 6 أحرف على الأقل',wrong:'البريد أو كلمة السر غير صحيحة',exists:'يوجد حساب مسجل بالفعل، سجّل الدخول',nonex:'لا يوجد حساب، أنشئ حساباً أولاً',welcome:'أهلاً بك',noCrypto:'تعذّر التشفير في هذا المتصفح',madeBy:'صُنع بواسطة',contact:'للتواصل والدعم:'},
+en:{delAcc:'Delete account',delConf:'Your account data will be permanently deleted from this device. Saved occasions are kept. Continue?',deleted:'Account deleted',app:'My Occasions',all:'All',soon:'Soon',cbd:'Birthdays',can:'Anniversaries',cot:'Special',bd:'Birthday',an:'Anniversary',ot:'Special occasion',week:'This week',d30:'Next 30 days',search:'Search by name…',nores:'No results',empty:'No occasions yet.<br>Tap + to add your first person.',
+ today:'Today',tom:'Tomorrow',tom2:'In 2 days',wk:'1 week',day:'days',gone:'Past',endTxt:'Occasion has passed',inD:function(n){return 'In '+n+' days'},inWk:'In a week',todayTxt:'The occasion is today 🎉',
+ turns:function(n){return 'Turns '+n},turnsY:function(n){return 'Turns '+n},hijri:'Hijri',remB:function(n){return n?'Reminder '+n+(n===1?' day':' days')+' before':'Reminder on the day'},remO:function(n){return n===0?'On the day':n+(n===1?' day':' days')+' before'},
+ newT:'New occasion',editT:'Edit occasion',name:'Name',nameP:'e.g. Ahmed',date:'Date (special occasion: the day itself; birthday/anniversary: birth or wedding date)',type:'Type',remind:'Remind me',phone:'Phone number',notes:'Notes (gift, size…)',save:'Save',cancel:'Cancel',
+ need:'Enter a name and pick a date',saved:'Saved',wa:'WhatsApp',call:'Call',copy:'Copy greeting',copied:'Copied',cfail:'Could not copy',edit:'Edit',del:'Delete',conf:'Delete this occasion?',sfail:'Could not save in this browser',
+ gbd:function(n){return 'Happy birthday '+n+'! 🎂 Wishing you a wonderful year ahead'},gan:function(n){return 'Happy anniversary '+n+'! 💍'},got:function(n){return 'Congratulations '+n+'! 🎁'},
+ set:'Settings',acct:'Account',lang:'Language',signup:'Create account',signin:'Sign in',haveAcc:'I have an account',noAcc:"I don't have an account",email:'Email',pass:'Password',accName:'Account name',google:'Continue with Google',gsoon:'Google sign-in needs Firebase and will come with the Android version.',localNote:'Your account is stored on this device only and does not sync yet.',logout:'Sign out',saveName:'Save name',bademail:'Enter a valid email',shortpass:'Password must be at least 6 characters',wrong:'Wrong email or password',exists:'An account already exists, please sign in',nonex:'No account found, create one first',welcome:'Welcome',noCrypto:'Encryption is unavailable in this browser',madeBy:'Made by',contact:'Contact & support:'}
+};
+var IC={bd:'🎂',an:'💍',ot:'🎁'};
+function ls(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v);return true}catch(e){return null}}
+var lang=ls('occ_lang')||'ar',people=[],filter='all',editing=null,authMode='signup',acc=null,logged=false;
+try{people=JSON.parse(ls('occ_v1')||'[]')}catch(e){}
+try{acc=JSON.parse(ls('occ_acc')||'null')}catch(e){}
+logged=ls('occ_in')==='1'&&!!acc;
+function tr(k){var v=TX[lang][k];return v===undefined?k:v}
+function save(){if(!ls('occ_v1',JSON.stringify(people)))toast(tr('sfail'));schedNotifs()}
+function esc(s){return String(s||'').replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function $(id){return document.getElementById(id)}
+function toast(m){var e=$('toast');e.textContent=m;e.style.display='block';setTimeout(function(){e.style.display='none'},2400)}
+function midnight(d){return new Date(d.getFullYear(),d.getMonth(),d.getDate())}
+function nextOcc(p){
+  var n=midnight(new Date()),b=p.date.split('-').map(Number);
+  if(p.type==='ot'){var e=new Date(b[0],b[1]-1,b[2]);return{d:e,days:Math.round((e-n)/864e5),age:null}}
+  var d=new Date(n.getFullYear(),b[1]-1,b[2]);
+  if(d<n)d=new Date(n.getFullYear()+1,b[1]-1,b[2]);
+  return{d:d,days:Math.round((d-n)/864e5),age:b[0]?d.getFullYear()-b[0]:null};
+}
+function rel(n){return n<0?[tr('gone'),'']:n===0?[tr('today'),'🎉']:n===1?[tr('tom'),'']:n===2?[tr('tom2'),'']:n===7?[tr('wk'),'']:[n,tr('day')]}
+function relTxt(n){return n<0?tr('endTxt'):n===0?tr('today'):n===1?tr('tom'):n===2?tr('tom2'):n===7?tr('inWk'):tr('inD')(n)}
+function cdB(n,px){var r=rel(n),w=String(r[0]).length>3;return '<b'+(w?' style="font-size:'+(px-(px>26?14:6))+'px"':'')+'>'+r[0]+'</b>'+(r[1]?'<span>'+r[1]+'</span>':'')}
+function hij(d){try{return new Intl.DateTimeFormat((lang==='ar'?'ar-SA':'en')+'-u-ca-islamic-umalqura',{day:'numeric',month:'long'}).format(d)}catch(e){return''}}
+function greg(d){return new Intl.DateTimeFormat(lang,{day:'numeric',month:'long'}).format(d)}
+function applyLang(){
+  document.documentElement.lang=lang;document.documentElement.dir=lang==='ar'?'rtl':'ltr';
+  document.title=tr('app');$('ttl').textContent=tr('app');$('q').placeholder=tr('search');
+}
+function view(){
+  applyLang();
+  var now=new Date();
+  $('today').textContent=new Intl.DateTimeFormat(lang,{weekday:'long',day:'numeric',month:'long'}).format(now)+' · '+hij(now);
+  var all=people.map(function(p){return Object.assign({},p,{o:nextOcc(p)})}).sort(function(a,b){var x=a.o.days<0?1e6-a.o.days:a.o.days,y=b.o.days<0?1e6-b.o.days:b.o.days;return x-y});
+  var h=$('hero');
+  if(!all.length||all[0].o.days<0){h.innerHTML=''}
+  else{var f=all[0];
+    h.innerHTML='<div class="hero"><div class="big"><div>'+cdB(f.o.days,32)+'</div></div><div><h2>'+esc(f.name)+'</h2><p>'+tr(f.type)+' · '+greg(f.o.d)+(f.o.age?' · '+tr('turns')(f.o.age):'')+'</p></div></div>';}
+  var w=all.filter(function(x){return x.o.days>=0&&x.o.days<=7}).length,m=all.filter(function(x){return x.o.days>=0&&x.o.days<=30}).length;
+  $('stats').innerHTML='<div class="stat"><b>'+all.length+'</b><span>'+tr('all')+'</span></div><div class="stat"><b>'+w+'</b><span>'+tr('week')+'</span></div><div class="stat"><b>'+m+'</b><span>'+tr('d30')+'</span></div>';
+  var fs=[['all',tr('all')],['soon',tr('soon')],['bd',tr('cbd')],['an',tr('can')],['ot',tr('cot')]];
+  $('chips').innerHTML=fs.map(function(c){return'<button class="chip'+(filter===c[0]?' on':'')+'" data-f="'+c[0]+'">'+c[1]+'</button>'}).join('');
+  var q=$('q').value.trim().toLowerCase();
+  var L=all.filter(function(x){
+    if(q&&x.name.toLowerCase().indexOf(q)<0)return false;
+    if(filter==='soon')return x.o.days>=0&&x.o.days<=30;
+    if(filter!=='all')return x.type===filter;
+    return true});
+  if(!L.length){$('list').innerHTML='<div class="empty">'+(all.length?tr('nores'):tr('empty'))+'</div>';return}
+  $('list').innerHTML=L.map(function(x){
+    var c=x.o.days===0?'today':(x.o.days>=0&&x.o.days<=x.remind?'soon':'')+(x.o.days<0?' past':'');
+    return'<div class="item '+c+'" data-id="'+x.id+'"><div class="ic">'+IC[x.type]+'</div><div class="mid"><b>'+esc(x.name)+'</b><small>'+greg(x.o.d)+' · '+hij(x.o.d)+'</small></div><div class="cd">'+cdB(x.o.days,22)+'</div></div>'}).join('');
+}
+function openSheet(h){$('panel').innerHTML=h;$('sheet').classList.add('open')}
+function closeSheet(){$('sheet').classList.remove('open')}
+function form(p){
+  p=p||{type:'bd',remind:3,date:'',name:'',phone:'',notes:''};
+  var opts=['bd','an','ot'].map(function(k){return'<option value="'+k+'"'+(p.type===k?' selected':'')+'>'+IC[k]+' '+tr(k)+'</option>'}).join('');
+  var rem=[0,1,3,7,14].map(function(n){return'<option value="'+n+'"'+(p.remind==n?' selected':'')+'>'+tr('remO')(n)+'</option>'}).join('');
+  openSheet('<h3>'+(editing?tr('editT'):tr('newT'))+'</h3><label>'+tr('name')+'</label><input id="fn" value="'+esc(p.name)+'" placeholder="'+tr('nameP')+'"><label>'+tr('date')+'</label><input id="fd" type="date" value="'+p.date+'"><div class="row"><div><label>'+tr('type')+'</label><select id="ft">'+opts+'</select></div><div><label>'+tr('remind')+'</label><select id="fr">'+rem+'</select></div></div><label>'+tr('phone')+'</label><input id="fp" type="tel" inputmode="tel" value="'+esc(p.phone)+'" placeholder="9665xxxxxxxx" dir="ltr"><label>'+tr('notes')+'</label><textarea id="fo" rows="3">'+esc(p.notes)+'</textarea><div class="acts"><button class="btn" id="fs">'+tr('save')+'</button><button class="btn alt" id="fc">'+tr('cancel')+'</button></div>');
+}
+function detail(id){
+  var p=people.filter(function(x){return x.id===id})[0];if(!p)return;
+  var o=nextOcc(p),phone=(p.phone||'').replace(/\D/g,'');
+  var msg=tr('g'+p.type)(p.name);
+  openSheet('<h3>'+IC[p.type]+' '+esc(p.name)+'</h3><div>'+greg(o.d)+(o.age?' · '+tr('turnsY')(o.age):'')+'</div><div class="hij">'+hij(o.d)+' '+tr('hijri')+'</div><div style="color:var(--mute);font-size:13px">'+(o.days===0?tr('todayTxt'):relTxt(o.days))+' · '+tr('remB')(p.remind)+'</div>'+(p.notes?'<div class="msg">📝 '+esc(p.notes)+'</div>':'')+'<div class="msg">'+esc(msg)+'</div><div class="acts">'+(phone?'<a class="btn" href="https://wa.me/'+phone+'?text='+encodeURIComponent(msg)+'" target="_blank" rel="noopener">'+tr('wa')+'</a><a class="btn alt" href="tel:'+phone+'">'+tr('call')+'</a>':'')+'<button class="btn alt" id="dc">'+tr('copy')+'</button></div><div class="acts"><button class="btn alt" id="de" data-id="'+id+'">'+tr('edit')+'</button><button class="btn del" id="dd" data-id="'+id+'">'+tr('del')+'</button></div>');
+  $('dc').onclick=function(){try{navigator.clipboard.writeText(msg);toast(tr('copied'))}catch(e){toast(tr('cfail'))}};
+}
+function settings(){
+  var a;
+  if(logged){
+    var ini=(acc.name||acc.email||'?').charAt(0).toUpperCase();
+    a='<div class="acc"><div class="av">'+esc(ini)+'</div><div style="min-width:0"><b>'+esc(acc.name||acc.email)+'</b><div class="sub" dir="ltr" style="text-align:start">'+esc(acc.email)+'</div></div></div><label>'+tr('accName')+'</label><input id="an" value="'+esc(acc.name)+'"><div class="acts"><button class="btn" id="sn">'+tr('saveName')+'</button><button class="btn alt" id="lo">'+tr('logout')+'</button></div><div class="acts"><button class="btn del" id="da">'+tr('delAcc')+'</button></div>';
+  }else{
+    var su=authMode==='signup';
+    a=(su?'<label>'+tr('accName')+'</label><input id="an">':'')+'<label>'+tr('email')+'</label><input id="em" type="email" dir="ltr" autocomplete="email"><label>'+tr('pass')+'</label><input id="pw" type="password" dir="ltr" autocomplete="'+(su?'new-password':'current-password')+'"><div class="acts"><button class="btn" id="go">'+(su?tr('signup'):tr('signin'))+'</button><button class="btn alt" id="sw">'+(su?tr('haveAcc'):tr('noAcc'))+'</button></div><div class="note">'+tr('localNote')+'</div>';
+  }
+  openSheet('<h3>⚙ '+tr('set')+'</h3><h4>'+tr('acct')+'</h4>'+a+'<h4>'+tr('lang')+'</h4><div class="acts" style="margin-top:0"><button class="btn'+(lang==='ar'?'':' alt')+'" data-lang="ar">العربية</button><button class="btn'+(lang==='en'?'':' alt')+'" data-lang="en">English</button></div><div class="foot">'+tr('madeBy')+' <b style="color:var(--gold)">shadow</b><br>'+tr('contact')+'<br><a href="https://instagram.com/shadow.____.7" target="_blank" rel="noopener">@shadow.____.7</a><br><span style="font-size:11px">© 2026 shadow. All rights reserved.</span></div>');
+}
+async function hash(s){var b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode('occ|'+s));return Array.from(new Uint8Array(b)).map(function(x){return x.toString(16).padStart(2,'0')}).join('')}
+async function auth(){
+  var em=$('em').value.trim().toLowerCase(),pw=$('pw').value;
+  if(!/^\S+@\S+\.\S+$/.test(em))return toast(tr('bademail'));
+  if(pw.length<6)return toast(tr('shortpass'));
+  var h;try{h=await hash(em+pw)}catch(e){return toast(tr('noCrypto'))}
+  if(authMode==='signup'){
+    if(acc)return toast(tr('exists'));
+    acc={name:($('an').value||'').trim(),email:em,h:h};ls('occ_acc',JSON.stringify(acc));
+  }else{
+    if(!acc)return toast(tr('nonex'));
+    if(acc.email!==em||acc.h!==h)return toast(tr('wrong'));
+  }
+  logged=true;ls('occ_in','1');toast(tr('welcome'));settings();
+}
+document.addEventListener('click',function(e){
+  var el=e.target,id=el.id;
+  if(id==='add'){editing=null;form()}
+  else if(id==='gear')settings();
+  else if(id==='sheet'||id==='fc')closeSheet();
+  else if(el.dataset&&el.dataset.f){filter=el.dataset.f;view()}
+  else if(el.dataset&&el.dataset.lang){lang=el.dataset.lang;ls('occ_lang',lang);view();settings()}
+  else if(id==='sw'){authMode=authMode==='signup'?'signin':'signup';settings()}
+  else if(id==='go')auth();
+  else if(id==='da'){if(confirm(tr('delConf'))){acc=null;logged=false;ls('occ_acc','');ls('occ_in','0');toast(tr('deleted'));settings()}}
+  else if(id==='lo'){logged=false;ls('occ_in','0');settings()}
+  else if(id==='sn'){acc.name=$('an').value.trim();ls('occ_acc',JSON.stringify(acc));toast(tr('saved'));settings()}
+  else if(id==='fs'){
+    var n=$('fn').value.trim(),d=$('fd').value;
+    if(!n||!d)return toast(tr('need'));
+    var r={name:n,date:d,type:$('ft').value,remind:+$('fr').value,phone:$('fp').value.trim(),notes:$('fo').value.trim()};
+    if(editing){people=people.map(function(x){return x.id===editing?Object.assign(x,r):x})}
+    else{r.id='p'+Date.now();people.push(r)}
+    save();closeSheet();view();toast(tr('saved'))}
+  else if(id==='de'){editing=el.dataset.id;form(people.filter(function(x){return x.id===editing})[0])}
+  else if(id==='dd'){if(confirm(tr('conf'))){people=people.filter(function(x){return x.id!==el.dataset.id});save();closeSheet();view()}}
+  else{var it=el.closest&&el.closest('.item');if(it)detail(it.dataset.id)}
+});
+$('q').addEventListener('input',view);
+view();
+function schedNotifs(){
+  var LN=window.Capacitor&&(window.MunasbatiLocalNotifications||(Capacitor.Plugins&&Capacitor.Plugins.LocalNotifications));if(!LN)return;
+  LN.requestPermissions().then(function(){return LN.getPending()})
+  .then(function(p){return p.notifications.length?LN.cancel({notifications:p.notifications}):0})
+  .then(function(){
+    var list=[],now=new Date();
+    people.forEach(function(x,i){
+      var o=nextOcc(x);if(o.days<0)return;
+      var at=new Date(o.d.getFullYear(),o.d.getMonth(),o.d.getDate()-x.remind,9,0);
+      if(at<now){at=new Date(o.d.getFullYear(),o.d.getMonth(),o.d.getDate(),9,0);if(at<now)return}
+      var rem=Math.round((o.d-midnight(at))/864e5);
+      var sch={at:at,allowWhileIdle:true};
+      if(x.type!=='ot'){sch.repeats=true;sch.every='year'}
+      list.push({id:i+1,title:tr('app'),body:x.name+' · '+tr(x.type)+' · '+(rem===0?tr('today'):relTxt(rem)),schedule:sch});
+    });
+    if(list.length)LN.schedule({notifications:list});
+  }).catch(function(){});
+}
+setTimeout(schedNotifs,800);
+</script>
+</body>
+</html>

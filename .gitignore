@@ -111,3 +111,16 @@ temp/
 
 # Manus version file (auto-generated, not part of source)
 client/public/__manus__/version.json
+
+# Munasbati Android release inputs and generated output
+munasbati-android/signing/
+munasbati-android/release/
+munasbati-android/node_modules/
+munasbati-android/android/.gradle/
+munasbati-android/android/local.properties
+munasbati-android/android/build/
+munasbati-android/android/app/build/
+munasbati-android/android/app/src/main/assets/public/
+munasbati-android/android/app/src/main/assets/capacitor.config.json
+munasbati-android/*.jks
+munasbati-android/*.keystore

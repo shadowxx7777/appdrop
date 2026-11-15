@@ -44,7 +44,10 @@ function AppDetailsContent({ app }: { app: AppItem }) {
           <div className="details-visual"><div className="details-halo" /><div className="details-app-tile" style={{ background: `linear-gradient(145deg, ${app.accent}, #181321)` }}>{app.iconImage ? <img className="details-tile-image" src={app.iconImage} alt="" /> : <span>{app.icon}</span>}</div></div>
         </section>
         <section className="details-info-grid">
-          <article className="details-description"><span className="eyebrow"><i /> عن التطبيق</span><p>{app.description}</p></article>
+          <article className="details-description">
+            {app.installNotice && <aside className="install-warning" role="alert"><strong>تنبيه قبل التثبيت</strong><p>{app.installNotice}</p></aside>}
+            <span className="eyebrow"><i /> عن التطبيق</span><p>{app.description}</p>
+          </article>
           <aside className="version-panel">
             <div className="version-row"><span>الإصدار الأخير</span><strong>v{version}</strong></div>
             <div className="version-row"><span>المنصة</span><strong>{app.platform}</strong></div>

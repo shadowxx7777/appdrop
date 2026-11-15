@@ -3,6 +3,7 @@ export type AppItem = {
   name: string;
   shortDescription: string;
   description: string;
+  installNotice?: string;
   icon: string;
   iconImage?: string;
   accent: string;
@@ -27,19 +28,20 @@ const appData: AppItem[] = [
   {
     slug: "munasbati",
     name: "مناسباتي ✨",
-    shortDescription: "تطبيق أندرويد بصيغة APK.",
-    description: "ملف APK لتطبيق مناسباتي على أندرويد.",
+    shortDescription: "أعياد الميلاد والذكريات والمناسبات في مكان واحد.",
+    description: "أعياد الميلاد والذكريات السنوية والمناسبات الخاصة، مع تنبيهات محلية متكررة.",
+    installNotice: "الإصدار 1.1 موقّع بمفتاح جديد ولا يمكن تثبيته فوق الإصدار 1.0. احذف النسخة القديمة أولًا؛ حذف التطبيق يمسح المناسبات والحسابات المحفوظة على هذا الجهاز.",
     icon: "✨",
     iconImage: "/app-icons/munasbati.png",
     accent: "#7650b5",
     platform: "Android",
     category: "مناسبات",
-    version: "1.0",
-    updatedAt: "غير محدد",
-    downloadUrl: "/downloads/munasbati.apk",
+    version: "1.1",
+    updatedAt: "15 نوفمبر 2026",
+    downloadUrl: "https://github.com/shadowxx7777/appdrop/releases/download/munasbati-v1.1/munasbati-v1.1.apk",
     releaseTagPrefix: "munasbati-v",
-    releaseAssetName: "munasbati.apk",
-    fallbackReleaseUrl: "https://github.com/shadowxx7777/appdrop/releases/download/munasbati-v1.0/munasbati.apk",
+    releaseAssetName: "munasbati-v1.1.apk",
+    fallbackReleaseUrl: "https://github.com/shadowxx7777/appdrop/releases/download/munasbati-v1.1/munasbati-v1.1.apk",
     screenshots: [],
   },
 ];

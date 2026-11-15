@@ -1,0 +1,22 @@
+{
+  "name": "munasbati-android",
+  "version": "1.1.0",
+  "private": true,
+  "packageManager": "npm@10.9.9",
+  "description": "Capacitor Android wrapper for the Munasbati app",
+  "scripts": {
+    "build:bridge": "esbuild src/notifications-bridge.js --bundle --format=iife --platform=browser --target=es2020 --outfile=www/notifications-bridge.js",
+    "android:add": "npm run build:bridge && cap add android",
+    "android:sync": "npm run build:bridge && cap sync android",
+    "android:release": "npm run android:sync && cd android && ./gradlew assembleRelease"
+  },
+  "dependencies": {
+    "@capacitor/android": "8.6.2",
+    "@capacitor/core": "8.6.2",
+    "@capacitor/local-notifications": "8.3.1"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "8.6.2",
+    "esbuild": "0.28.2"
+  }
+}

@@ -1,0 +1,12 @@
+node_modules/
+release/
+signing/
+*.jks
+*.keystore
+www/notifications-bridge.js
+android/.gradle/
+android/local.properties
+android/build/
+android/app/build/
+android/app/src/main/assets/public/
+android/app/src/main/assets/capacitor.config.json

@@ -107,6 +107,9 @@ button { color: inherit; }
 .details-tile-image { width: 100%; height: 100%; border-radius: inherit; object-fit: cover; }
 .details-info-grid { display: grid; grid-template-columns: 1fr 320px; gap: 44px; padding: 39px 0; border-bottom: 1px solid var(--line); }
 .details-description p { max-width: 570px; color: #b7afc0; font-size: 13px; line-height: 2; }
+.install-warning { margin: 0 0 18px; padding: 13px 15px; border: 1px solid rgba(231,189,92,.34); border-inline-start: 3px solid var(--gold); border-radius: 11px; background: rgba(231,189,92,.06); }
+.install-warning strong { color: var(--gold); font-size: 12px; }
+.install-warning p { margin: 5px 0 0; color: #d2c7d9; font-size: 12px; line-height: 1.9; }
 .version-panel { padding: 15px 18px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); }
 .version-row { display: flex; justify-content: space-between; gap: 12px; padding: 8px 0; border-bottom: 1px solid rgba(212,193,237,.08); color: #93899e; font-size: 10px; }
 .version-row:last-child { border-bottom: 0; }

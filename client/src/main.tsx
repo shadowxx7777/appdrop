@@ -8,6 +8,26 @@ import App from "./App";
 import { startLogin } from "./const";
 import "./index.css";
 
+const restoreGitHubPagesRoute = () => {
+  const requestedPath = new URLSearchParams(window.location.search).get("p");
+  if (!requestedPath?.startsWith("/") || requestedPath.startsWith("//") || requestedPath.includes("\\")) return;
+
+  const requestedUrl = new URL(requestedPath, window.location.origin);
+  if (requestedUrl.origin !== window.location.origin) return;
+
+  const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+  const routePath = base && !requestedUrl.pathname.startsWith(`${base}/`)
+    ? `${base}${requestedUrl.pathname}`
+    : requestedUrl.pathname;
+  window.history.replaceState(
+    window.history.state,
+    "",
+    `${routePath}${requestedUrl.search}${requestedUrl.hash}`,
+  );
+};
+
+restoreGitHubPagesRoute();
+
 const queryClient = new QueryClient();
 
 const redirectToLoginIfUnauthorized = (error: unknown) => {

@@ -60,7 +60,7 @@ export default function Home() {
   return (
     <div className="site-shell" dir="rtl">
       <header className="site-header">
-        <a className="brand" href="#top" aria-label="تطبيقاتي"><BrandMark /><span>تطبيقاتي</span></a>
+        <a className="brand" href="#top" aria-label="تطبيقات شادو"><BrandMark /><span>تطبيقات شادو</span></a>
         <nav className="main-nav"><a href="#apps">التطبيقات</a></nav>
         <a href="#apps" className="header-cta">استكشف <ArrowUpLeft size={15} /></a>
       </header>
@@ -68,9 +68,9 @@ export default function Home() {
       <main id="top">
         <section className="hero-section">
           <div className="hero-copy">
-            <span className="eyebrow"><i /> معرض التطبيقات</span>
+            <span className="eyebrow"><i /> متجر تطبيقات شادو</span>
             <h1>أفكار صنعتها.<br /><span className="gold-text">والآن حمّلها.</span></h1>
-            <p>تطبيقاتي في مكان واحد.</p>
+            <p>تطبيقات شادو في مكان واحد.</p>
             <a href="#apps" className="button-primary">شاهد التطبيقات <ArrowLeft size={16} /></a>
           </div>
           <div className="hero-visual" aria-hidden="true">
@@ -93,7 +93,7 @@ export default function Home() {
           )}
         </section>
       </main>
-      <footer className="site-footer"><a className="brand footer-brand" href="#top"><BrandMark small /><span>تطبيقاتي</span></a><span>© 2026</span><a href="#top" className="back-to-top">للأعلى ↑</a></footer>
+      <footer className="site-footer"><a className="brand footer-brand" href="#top"><BrandMark small /><span>تطبيقات شادو</span></a><span>© 2026</span><a href="#top" className="back-to-top">للأعلى ↑</a></footer>
     </div>
   );
 }

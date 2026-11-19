@@ -1,4 +1,4 @@
-# تطبيقاتي — معرض التحميل
+# تطبيقات شادو — متجر التطبيقات
 
 React / Express / tRPC / Drizzle starter, adapted from the Sandbox web-db-user template.
 

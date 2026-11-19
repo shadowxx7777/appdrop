@@ -21,8 +21,8 @@ function AppDetailsContent({ app }: { app: AppItem }) {
 
   return (
     <div className="site-shell" dir="rtl">
-      <header className="site-header">
-        <Link className="brand" href="/"><BrandMark /><span>تطبيقاتي</span></Link>
+        <header className="site-header">
+        <Link className="brand" href="/"><BrandMark /><span>تطبيقات شادو</span></Link>
         <nav className="main-nav"><Link href="/#apps">التطبيقات</Link></nav>
         <Link href="/" className="header-cta"><ArrowRight size={15} /> رجوع</Link>
       </header>
@@ -81,7 +81,7 @@ function AppDetailsContent({ app }: { app: AppItem }) {
         <section className="screenshots-section"><div className="screenshots-heading"><h2>صور التطبيق</h2></div>{app.screenshots.length ? <div className="screenshots-grid">{app.screenshots.map((src, index) => <figure key={src}><img src={src} alt={`${app.name} ${index + 1}`} loading="lazy" /></figure>)}</div> : <div className="screenshot-empty">لا توجد صور بعد</div>}</section>
         <div className="details-back"><Link href="/"><ArrowRight size={16} /> كل التطبيقات</Link></div>
       </main>
-      <footer className="site-footer"><Link className="brand footer-brand" href="/"><BrandMark small /><span>تطبيقاتي</span></Link><span>© 2026</span><Link href="/" className="back-to-top">رجوع</Link></footer>
+      <footer className="site-footer"><Link className="brand footer-brand" href="/"><BrandMark small /><span>تطبيقات شادو</span></Link><span>© 2026</span><Link href="/" className="back-to-top">رجوع</Link></footer>
     </div>
   );
 }

@@ -44,6 +44,23 @@ const appData: AppItem[] = [
     fallbackReleaseUrl: "https://github.com/shadowxx7777/appdrop/releases/download/munasbati-v1.1/munasbati-v1.1.apk",
     screenshots: [],
   },
+  {
+    slug: "talabatbayt",
+    name: "طلبات البيت",
+    shortDescription: "قائمة مشتريات العائلة المشتركة دون تكرار الشراء",
+    description: "تطبيق عربي يساعد أفراد العائلة على إضافة أغراض البيت وحجزها وإنهائها مع معرفة الشخص المسؤول عن كل غرض.",
+    icon: "🛒",
+    accent: "#5B4B9A",
+    platform: "Android",
+    category: "أدوات",
+    version: "1.0",
+    updatedAt: "20 نوفمبر 2026",
+    downloadUrl: "https://github.com/shadowxx7777/appdrop/releases/download/talabatbayt-v1.0/talabatbayt-v1.0.apk",
+    releaseTagPrefix: "talabatbayt-v",
+    releaseAssetName: "talabatbayt-v1.0.apk",
+    fallbackReleaseUrl: "https://github.com/shadowxx7777/appdrop/releases/download/talabatbayt-v1.0/talabatbayt-v1.0.apk",
+    screenshots: [],
+  },
 ];
 
 export const apps: AppItem[] = appData.map((app) => ({

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Sitemap: https://shadowxx7777.github.io/appdrop/sitemap.xml

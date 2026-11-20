@@ -13,8 +13,9 @@ function BrandMark({ small = false }: { small?: boolean }) {
 
 function AppDetailsContent({ app }: { app: AppItem }) {
   const { release, loading, error } = useAppRelease(app);
-  const downloadUrl = release?.downloadUrl ?? (loading ? "" : app.fallbackReleaseUrl || app.downloadUrl);
-  const qrUrl = release?.downloadUrl ?? (loading ? "" : app.fallbackReleaseUrl || app.downloadUrl);
+  const directDownloadUrl = app.directDownloadUrl ? `${import.meta.env.BASE_URL}${app.directDownloadUrl.replace(/^\/+/, "")}` : "";
+  const downloadUrl = directDownloadUrl || release?.downloadUrl || (loading ? "" : app.fallbackReleaseUrl || app.downloadUrl);
+  const qrUrl = directDownloadUrl || release?.downloadUrl || (loading ? "" : app.fallbackReleaseUrl || app.downloadUrl);
   const version = release?.version ?? app.version;
   const downloadCount = release ? formatDownloadCount(release.downloadCount) : loading ? "…" : "غير متاح";
   const releaseNotes = release?.notes.trim();

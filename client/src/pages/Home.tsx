@@ -12,7 +12,7 @@ function BrandMark({ small = false }: { small?: boolean }) {
 
 function AppCard({ app }: { app: AppItem }) {
   const { release, loading } = useAppRelease(app);
-  const downloadUrl = release?.downloadUrl ?? (loading ? "" : app.fallbackReleaseUrl || app.downloadUrl);
+  const downloadUrl = app.directDownloadUrl ? `${import.meta.env.BASE_URL}${app.directDownloadUrl.replace(/^\/+/, "")}` : release?.downloadUrl ?? (loading ? "" : app.fallbackReleaseUrl || app.downloadUrl);
   const versionLabel = loading ? "…" : `v${release?.version ?? app.version}`;
 
   return (

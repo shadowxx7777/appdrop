@@ -12,6 +12,7 @@ export type AppItem = {
   version: string;
   updatedAt: string;
   downloadUrl: string;
+  directDownloadUrl?: string;
   releaseTagPrefix: string;
   releaseAssetName: string;
   fallbackReleaseUrl: string;
@@ -55,6 +56,7 @@ const appData: AppItem[] = [
     category: "أدوات",
     version: "1.0",
     updatedAt: "20 نوفمبر 2026",
+    directDownloadUrl: "/downloads/talabatbayt.apk",
     downloadUrl: "https://github.com/shadowxx7777/appdrop/releases/download/talabatbayt-v1.0/talabatbayt-v1.0.apk",
     releaseTagPrefix: "talabatbayt-v",
     releaseAssetName: "talabatbayt-v1.0.apk",

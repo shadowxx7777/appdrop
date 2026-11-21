@@ -72,12 +72,13 @@ function printHelp() {
 }
 
 function shell(command, args, options = {}) {
-  return execFileSync(command, args, {
+  const output = execFileSync(command, args, {
     cwd: ROOT,
     encoding: "utf8",
     env: options.env ? { ...process.env, ...options.env } : process.env,
     stdio: options.silent ? ["ignore", "pipe", "pipe"] : "inherit",
-  }).trim();
+  });
+  return typeof output === "string" ? output.trim() : "";
 }
 
 function quote(value) {
